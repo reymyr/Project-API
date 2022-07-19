@@ -64,7 +64,7 @@ router.delete("/:id", auth, async (req, res) => {
 });
 
 // GET /api/developers/:id/projects
-router.get("/:id/projects", async (req, res) => {
+router.get("/:id/projects", auth, async (req, res) => {
   const developerProjects = await db.ProjectDevs.findAll({
     where: { developerId: req.params.id },
   })
@@ -72,7 +72,7 @@ router.get("/:id/projects", async (req, res) => {
 })
 
 // POST /api/developers/:id/projects
-router.post("/:id/projects", async (req, res) => {
+router.post("/:id/projects", auth, async (req, res) => {
   const developer = await db.Developer.findByPk(req.params.id);
 
   if (!developer) {
