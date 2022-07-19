@@ -17,8 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: true,
-          min: 6
+          notEmpty: true
         }
       }
     },
